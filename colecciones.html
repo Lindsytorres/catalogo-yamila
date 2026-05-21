@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Colecciones — Yamila Cure</title>
+<meta name="description" content="Cápsula Luz — La colección más luminosa de Yamila Cure. Sets y prendas de lino natural.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --cream:   #F9F5EE;
+  --ivory:   #FEFCF8;
+  --sand:    #EDE4D0;
+  --gold:    #C8971A;
+  --gold-lt: #DEB84A;
+  --teal:    #1C4F6A;
+  --teal-dk: #163D54;
+  --earth:   #7A5840;
+  --dark:    #1A1410;
+  --white:   #FFFFFF;
+  --wa:      #25D366;
+  --r:       2px;
+  --ease:    cubic-bezier(.4,0,.2,1);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body { font-family:'Jost',system-ui,sans-serif; background:var(--cream);
+       color:var(--dark); font-weight:300; -webkit-font-smoothing:antialiased;
+       overflow-x:hidden; }
+img  { display:block; width:100%; height:100%; object-fit:cover; }
+a    { text-decoration:none; color:inherit; }
+button { cursor:pointer; border:none; background:none; font-family:'Jost',sans-serif; }
+
+/* ─── Topbar ─── */
+.topbar {
+  background: var(--teal);
+  color: rgba(255,255,255,.7);
+  text-align:center;
+  padding: 9px 16px;
+  font-size:11px;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  font-weight:400;
+}
+.topbar strong { color:var(--gold-lt); font-weight:500; }
+
+/* ─── Header ─── */
+.hdr {
+  position:sticky; top:0; z-index:300;
+  background:var(--ivory);
+  border-bottom:1px solid var(--sand);
+  transition:box-shadow .4s var(--ease);
+}
+.hdr.scrolled { box-shadow:0 2px 28px rgba(26,20,16,.09); }
+
+.hdr-inner {
+  max-width:1360px; margin:0 auto;
+  padding:0 32px; height:72px;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:16px;
+}
+
+.nav-l { display:flex; gap:32px; align-items:center; }
+.nav-l a {
+  font-size:11px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--dark); opacity:.55; font-weight:400;
+  transition:opacity .3s;
+}
+.nav-l a:hover, .nav-l a.active { opacity:1; }
+
+.logo {
+  grid-column:2; text-align:center;
+  display:flex; flex-direction:column; align-items:center; gap:1px;
+}
+.logo-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px; font-weight:500;
+  letter-spacing:7px; text-transform:uppercase;
+  color:var(--teal); line-height:1;
+}
+.logo-name .y { color:var(--gold); }
+.logo-tag {
+  font-size:8.5px; letter-spacing:3.5px; text-transform:uppercase;
+  color:var(--gold); font-weight:400; margin-top:1px;
+}
+.logo-line {
+  width:32px; height:1px; background:var(--gold); margin-top:5px; opacity:.6;
+}
+
+.nav-r { display:flex; justify-content:flex-end; align-items:center; gap:12px; }
+.btn-wa {
+  display:inline-flex; align-items:center; gap:7px;
+  background:var(--teal); color:var(--white);
+  padding:10px 20px; border-radius:var(--r);
+  font-size:10px; letter-spacing:2px; text-transform:uppercase; font-weight:400;
+  transition:background .3s var(--ease);
+}
+.btn-wa:hover { background:var(--teal-dk); }
+.btn-wa svg { flex-shrink:0; }
+
+.ham {
+  display:none; flex-direction:column; gap:5px; padding:5px; grid-column:3;
+  justify-self:end;
+}
+.ham span {
+  display:block; width:22px; height:1.5px; background:var(--dark);
+  transition:.35s var(--ease);
+}
+.ham.open span:nth-child(1) { transform:rotate(45deg) translate(4.7px,4.7px); }
+.ham.open span:nth-child(2) { opacity:0; }
+.ham.open span:nth-child(3) { transform:rotate(-45deg) translate(4.7px,-4.7px); }
+
+.mob-nav {
+  display:none; flex-direction:column; gap:0;
+  background:var(--ivory); border-top:1px solid var(--sand);
+}
+.mob-nav.open { display:flex; }
+.mob-nav a {
+  padding:16px 28px;
+  font-size:12px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--dark); font-weight:400; border-bottom:1px solid var(--sand);
+  transition:color .25s, background .25s;
+}
+.mob-nav a:hover { color:var(--teal); background:var(--cream); }
+.mob-nav .mob-wa {
+  background:var(--teal); color:var(--white) !important;
+  display:flex; align-items:center; justify-content:center;
+  gap:8px; padding:18px 28px;
+  font-size:11px; font-weight:400; border:none;
+}
+
+/* ─── Hero Cápsula Luz ─── */
+.luz-hero {
+  background: linear-gradient(160deg, #FEFCF8 0%, #F5EDD8 50%, #EDE4D0 100%);
+  padding: 72px 32px 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.luz-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(200,151,26,.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.luz-logo-wrap {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 32px;
+}
+
+.luz-logo {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 32px rgba(200,151,26,.18));
+}
+
+.luz-eyebrow {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.luz-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 7vw, 76px);
+  font-weight: 300;
+  color: var(--teal);
+  letter-spacing: 4px;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.luz-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.luz-subtitle {
+  font-size: 13px;
+  color: var(--earth);
+  letter-spacing: 1.5px;
+  max-width: 480px;
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+
+.luz-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto;
+}
+.luz-divider-line {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  opacity: .5;
+}
+.luz-divider-icon {
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+
+/* ─── Sección colección ─── */
+.coleccion-section {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 64px 32px 80px;
+}
+
+.coleccion-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.coleccion-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.coleccion-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 400;
+  color: var(--teal);
+  letter-spacing: 2px;
+}
+
+/* ─── Grid de productos ─── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 28px;
+}
+
+.card {
+  background: var(--ivory);
+  border: 1px solid var(--sand);
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .4s var(--ease), transform .4s var(--ease);
+  animation: fadeUp .5s var(--ease) both;
+}
+.card:hover {
+  box-shadow: 0 12px 48px rgba(26,20,16,.1);
+  transform: translateY(-4px);
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.card-img {
+  aspect-ratio: 3/4;
+  position: relative;
+  overflow: hidden;
+  background: var(--sand);
+}
+.card-img img {
+  width:100%; height:100%; object-fit:cover;
+  transition: transform .7s var(--ease);
+}
+.card:hover .card-img img { transform: scale(1.04); }
+
+.card-hover {
+  position: absolute; inset:0;
+  display:flex; align-items:flex-end; justify-content:center;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(26,20,16,.55) 0%, transparent 60%);
+  opacity:0;
+  transition: opacity .35s var(--ease);
+}
+.card:hover .card-hover { opacity:1; }
+.card-hover-btn {
+  display:inline-flex; align-items:center; gap:7px;
+  background:var(--wa); color:var(--white);
+  padding:11px 22px; border-radius:var(--r);
+  font-size:10px; letter-spacing:2px; text-transform:uppercase;
+  font-weight:400;
+  transition:background .25s;
+  white-space:nowrap;
+}
+.card-hover-btn:hover { background:#1fb855; }
+
+.badge {
+  position:absolute; top:14px; left:14px;
+  font-size:9px; letter-spacing:2px; text-transform:uppercase;
+  padding:5px 10px; border-radius:2px; font-weight:500;
+}
+.b-new { background:var(--teal); color:var(--white); }
+.b-sale { background:var(--gold); color:var(--white); }
+
+.card-info {
+  padding: 20px 22px 22px;
+  display:flex; flex-direction:column; gap:6px; flex:1;
+}
+.card-cat {
+  font-size:9px; letter-spacing:3px; text-transform:uppercase;
+  color:var(--gold); font-weight:400;
+}
+.card-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px; font-weight:500; color:var(--dark);
+  line-height:1.2;
+}
+.card-desc {
+  font-size:12px; color:var(--earth); line-height:1.7; flex:1;
+  margin-top:2px;
+}
+.card-foot {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-top:14px; padding-top:14px;
+  border-top:1px solid var(--sand);
+}
+.card-price {
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px; font-weight:500; color:var(--dark);
+}
+.card-price small {
+  font-size:10px; font-weight:300; letter-spacing:1px;
+  color:var(--earth); margin-left:2px;
+}
+.btn-pedir {
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--teal); color:var(--white);
+  padding:9px 16px; border-radius:var(--r);
+  font-size:10px; letter-spacing:1.5px; text-transform:uppercase;
+  font-weight:400;
+  transition:background .25s var(--ease);
+}
+.btn-pedir:hover { background:var(--teal-dk); }
+
+/* ─── Banner CTA ─── */
+.mid {
+  position:relative; overflow:hidden;
+  background:var(--teal);
+  padding:72px 32px;
+  text-align:center;
+  color:var(--white);
+}
+.mid h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,5vw,52px); font-weight:300;
+  line-height:1.2; margin-bottom:8px;
+}
+.mid h2 em { font-style:italic; color:var(--gold-lt); }
+.mid-eyebrow {
+  font-size:10px; letter-spacing:4px; text-transform:uppercase;
+  color:var(--gold-lt); margin-bottom:16px;
+}
+.mid-line {
+  width:40px; height:1px; background:var(--gold-lt);
+  margin:20px auto; opacity:.6;
+}
+.mid p { font-size:13px; color:rgba(255,255,255,.7); margin-bottom:32px; line-height:1.8; }
+.btn-wa-mid {
+  display:inline-flex; align-items:center; gap:9px;
+  background:var(--wa); color:var(--white);
+  padding:14px 32px; border-radius:var(--r);
+  font-size:11px; letter-spacing:2px; text-transform:uppercase; font-weight:400;
+  transition:background .3s var(--ease), transform .3s var(--ease);
+}
+.btn-wa-mid:hover { background:#1fb855; transform:translateY(-2px); }
+
+/* ─── Footer ─── */
+footer {
+  background:var(--dark); color:rgba(255,255,255,.6);
+  padding:64px 32px 32px;
+}
+.foot-grid {
+  max-width:1360px; margin:0 auto;
+  display:grid; grid-template-columns:2fr 1fr 1fr;
+  gap:48px; margin-bottom:48px;
+}
+.foot-brand-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px; font-weight:500; color:var(--white);
+  letter-spacing:4px; text-transform:uppercase; margin-bottom:6px;
+}
+.foot-brand-tag {
+  font-size:9px; letter-spacing:3px; text-transform:uppercase;
+  color:var(--gold); margin-bottom:16px;
+}
+.foot-brand-sep {
+  width:32px; height:1px; background:var(--gold); opacity:.5; margin-bottom:16px;
+}
+.foot-brand-txt { font-size:12px; line-height:1.8; max-width:280px; }
+.foot-col h4 {
+  font-size:9px; letter-spacing:3px; text-transform:uppercase;
+  color:var(--gold); font-weight:400; margin-bottom:20px;
+}
+.foot-col a {
+  display:block; font-size:12px; margin-bottom:10px;
+  color:rgba(255,255,255,.55);
+  transition:color .25s;
+}
+.foot-col a:hover { color:var(--white); }
+.foot-bottom {
+  max-width:1360px; margin:0 auto;
+  padding-top:24px; border-top:1px solid rgba(255,255,255,.08);
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:11px;
+}
+
+/* ─── Responsive ─── */
+@media (max-width:900px) {
+  .foot-grid { grid-template-columns:1fr 1fr; }
+  .foot-grid > div:first-child { grid-column:1/-1; }
+}
+@media (max-width:680px) {
+  .hdr-inner { grid-template-columns:auto 1fr; padding:0 20px; height:60px; }
+  .nav-l, .nav-r { display:none; }
+  .ham { display:flex; }
+  .logo { grid-column:1; }
+  .logo-name { font-size:19px; letter-spacing:5px; }
+
+  .luz-hero { padding:48px 20px 40px; }
+  .luz-logo { width:150px; height:150px; }
+
+  .coleccion-section { padding:40px 16px 60px; }
+  .grid { grid-template-columns:repeat(2,1fr); gap:12px; }
+  .card-info { padding:14px 14px 16px; }
+  .card-name { font-size:16px; }
+
+  .foot-grid { grid-template-columns:1fr; gap:32px; }
+  .foot-bottom { flex-direction:column; gap:8px; text-align:center; }
+}
+@media (max-width:400px) {
+  .grid { grid-template-columns:1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ─── Topbar ─── -->
+<div class="topbar">
+  <strong>Cápsula Luz 2026</strong> · Prendas de lino natural · Diseños atemporales
+</div>
+
+<!-- ─── Header ─── -->
+<header class="hdr" id="hdr">
+  <div class="hdr-inner">
+    <nav class="nav-l">
+      <a href="index.html">Catálogo</a>
+      <a href="colecciones.html" class="active">Colecciones</a>
+    </nav>
+
+    <a href="index.html" class="logo">
+      <span class="logo-name"><span class="y">Y</span>amila Cure</span>
+      <span class="logo-tag">La esencia pura del lino</span>
+      <span class="logo-line"></span>
+    </a>
+
+    <div class="nav-r">
+      <a href="https://wa.me/573008149338?text=Hola%20Yamila%20Cure%20%F0%9F%8C%BF"
+         class="btn-wa" target="_blank" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+
+    <button class="ham" id="ham" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="mob-nav" id="mobnav">
+    <a href="index.html">Catálogo</a>
+    <a href="colecciones.html">Colecciones</a>
+    <a href="https://wa.me/573008149338"
+       class="mob-wa" target="_blank" rel="noopener">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Escribir por WhatsApp
+    </a>
+  </nav>
+</header>
+
+<!-- ─── Hero Cápsula Luz ─── -->
+<section class="luz-hero">
+  <div class="luz-logo-wrap">
+    <img class="luz-logo" src="fotos/logo-luz.jpg" alt="Cápsula Luz — Yamila Cure">
+  </div>
+  <p class="luz-eyebrow">Yamila Cure · Colección 2026</p>
+  <h1 class="luz-title">Cápsula <em>Luz</em></h1>
+  <p class="luz-subtitle">
+    Una colección de prendas en lino natural que celebra la luz,<br>
+    la calma y la elegancia atemporal. Cada diseño, hecho con amor en Colombia.
+  </p>
+  <div class="luz-divider">
+    <div class="luz-divider-line"></div>
+    <span class="luz-divider-icon">✦</span>
+    <div class="luz-divider-line"></div>
+  </div>
+</section>
+
+<!-- ─── Colección completa ─── -->
+<section class="coleccion-section">
+  <div class="coleccion-header">
+    <p class="coleccion-label">23 diseños · Todos los estilos</p>
+    <h2 class="coleccion-title">Los diseños de la colección</h2>
+  </div>
+  <div class="grid" id="grid" role="list"></div>
+</section>
+
+<!-- ─── Banner CTA ─── -->
+<div class="mid">
+  <p class="mid-eyebrow">Atención personalizada</p>
+  <h2>¿Te enamora alguna<br><em>prenda de Luz?</em></h2>
+  <div class="mid-line"></div>
+  <p>Cada pieza está confeccionada en lino natural de alta calidad.<br>Te asesoramos con gusto sobre tallas y disponibilidad.</p>
+  <a href="https://wa.me/573008149338?text=Hola%20Yamila%20Cure%20%F0%9F%8C%BF%20vi%20la%20C%C3%A1psula%20Luz%20y%20quiero%20saber%20m%C3%A1s"
+     class="btn-wa-mid" target="_blank" rel="noopener">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Hablar por WhatsApp
+  </a>
+</div>
+
+<!-- ─── Footer ─── -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand-name">Yamila Cure</div>
+      <div class="foot-brand-tag">La esencia pura del lino · Colombia</div>
+      <div class="foot-brand-sep"></div>
+      <p class="foot-brand-txt">Sets y prendas en lino natural de alta calidad. Diseños atemporales para la mujer que elige elegancia y comodidad.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Páginas</h4>
+      <a href="index.html">Catálogo</a>
+      <a href="colecciones.html">Colecciones</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contacto</h4>
+      <a href="https://wa.me/573008149338" target="_blank">WhatsApp</a>
+      <a href="mailto:hola@yamilacure.com">hola@yamilacure.com</a>
+      <a href="https://instagram.com/yamilacureoficial" target="_blank">@yamilacureoficial</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>© 2026 Yamila Cure · Todos los derechos reservados</p>
+    <p>Hecho con amor en Colombia 🇨🇴</p>
+  </div>
+</footer>
+
+<script>
+const WA = '573008149338';
+
+const ITEMS = [
+  {
+    nombre: 'Vestido Manto',
+    cats: ['vestido'],
+    precio: '380000',
+    desc: 'Vestido halter maxi en lino natural. Espalda descubierta y caída perfecta.',
+    img: 'fotos/ChatGPT Image 1 may 2026, 01_45_24 p.m..png',
+    badge: null
+  },
+  {
+    nombre: 'Set Inmaculada',
+    cats: ['set'],
+    precio: '600000',
+    desc: 'Camisa crop azul marino con costuras en contraste y pantalón palazzo. Pantalón $350.000 · Blusa $250.000',
+    img: 'fotos/ChatGPT Image 1 may 2026, 01_48_38 p.m..png',
+    badge: null
+  },
+  {
+    nombre: 'Vestido Isabella',
+    cats: ['vestido'],
+    precio: '700000',
+    desc: 'Vestido maxi de lino con cuerpo en encaje artesanal. Elegancia bordada hilo a hilo.',
+    img: 'fotos/ChatGPT Image 1 may 2026, 01_55_24 p.m..png',
+    badge: null
+  },
+  {
+    nombre: 'Set Mística',
+    cats: ['set'],
+    precio: '600000',
+    desc: 'Blusa Mística en encaje peplum blanco + Pantalón Inmaculada azul marino. Pantalón $350.000 · Blusa $250.000',
+    img: 'fotos/ChatGPT Image 7 may 2026, 02_00_48 p.m..png',
+    badge: null
+  },
+  {
+    nombre: 'Set Esperanza',
+    cats: ['set'],
+    precio: '600000',
+    desc: 'Blusa Esperanza de lino blanco + Pantalón palazzo de pierna ancha. Arquitectura en blanco puro. Pantalón $350.000 · Blusa $250.000',
+    img: 'fotos/ChatGPT Image 7 may 2026, 02_08_07 p.m..png',
+    badge: null
+  },
+  {
+    nombre: 'Enterizo Olivo',
+    cats: ['prenda'],
+    precio: '450000',
+    desc: 'Enterizo de lino oliva con cintura anudada. Cuello alto, manga corta. Pieza única y editorial.',
+    img: 'fotos/ChatGPT Image 7 may 2026, 11_56_05 a.m..png',
+    badge: null
+  },
+  {
+    nombre: 'Vestido Avena',
+    cats: ['vestido'],
+    precio: '700000',
+    desc: 'Vestido de lino avena con detalle de guipur calado. Tejido artesanal de alta calidad.',
+    img: 'fotos/hf_20260422_222746_286fefe7-0c04-4d45-8190-6c5d43aa77c3.png',
+    badge: null
+  },
+  {
+    nombre: 'Set Lirio',
+    cats: ['set'],
+    precio: '550000',
+    desc: 'Top y pantalón palazzo en encaje negro semitransparente. Para las noches que piden todo.',
+    img: 'fotos/hf_20260504_123959_e16afcdc-2121-4c7c-ae67-a1499225237a.png',
+    badge: null
+  },
+  {
+    nombre: 'Set Alba',
+    cats: ['set'],
+    precio: '600000',
+    desc: 'Camisa con cordón en cintura + pantalón palazzo en lino natural arena tono a tono. Pantalón $300.000 · Blusa $300.000',
+    img: 'fotos/hf_20260504_131210_472e5aa3-a826-444c-bac2-a9a955511fe8.png',
+    badge: null
+  },
+  {
+    nombre: 'Set Vela',
+    cats: ['set'],
+    precio: '550000',
+    desc: 'Blusa Cielo de manga corta + Pantalón Vela en lino chocolate. Calidez artesanal. Pantalón $300.000 · Blusa $250.000',
+    img: 'fotos/hf_20260504_133336_39951c91-7aa0-4045-81ba-99b15f37aa27.png',
+    badge: null
+  },
+  {
+    nombre: 'Set Radiante',
+    cats: ['set'],
+    precio: '450000',
+    desc: 'Top con tiras de crochet y short a juego en lino blanco. Frescura y detalle artesanal.',
+    img: 'fotos/hf_20260505_155312_89b9bbff-a7aa-418e-abab-53e8ce5a896f.png',
+    badge: null
+  },
+  {
+    nombre: 'Set Paloma',
+    cats: ['set'],
+    precio: '700000',
+    desc: 'Camisa oversize en lino ecru + pantalón palazzo terracota. El contraste más elegante de la temporada.',
+    img: 'fotos/hf_20260507_143735_66a54cce-9f05-40e5-8adc-d6d2384e2317.png',
+    badge: null
+  },
+  {
+    nombre: 'Set Inmaculada Blanco',
+    cats: ['set'],
+    precio: '600000',
+    desc: 'Blusa halter con lazada delantera + pantalón palazzo en lino blanco puro. Refinamiento absoluto. Pantalón $350.000 · Blusa $250.000',
+    img: 'fotos/hf_20260507_145505_1a1bdccd-de47-47b9-ad55-fe990d5df720.png',
+    badge: null
+  },
+  {
+    nombre: 'Pantalón Inmaculada',
+    cats: ['prenda'],
+    precio: '350000',
+    desc: 'Pantalón palazzo de lino azul marino. Pieza esencial que combina con toda la colección.',
+    img: 'fotos/hf_20260507_182231_33fc4d53-07ba-4a16-8b5d-d515051e7d61.png',
+    badge: null
+  },
+  {
+    nombre: 'Set Short Mística',
+    cats: ['set'],
+    precio: '450000',
+    desc: 'Camisa y short a juego en bordado inglés blanco. Elegancia artesanal para el día a día.',
+    img: 'fotos/hf_20260507_182855_ff0ad30e-3933-4847-a1dd-c4076414adc8.png',
+    badge: null
+  },
+  {
+    nombre: 'Blusa Serena',
+    cats: ['prenda'],
+    precio: '180000',
+    desc: 'Blusa halter malva con escote cowl y caída perfecta. Pieza singular para combinar a tu estilo.',
+    img: 'fotos/hf_20260507_185106_d04280bb-5831-4d5d-a99d-37a11c6a0c46.png',
+    badge: null
+  },
+  {
+    nombre: 'Set Avena Pura',
+    cats: ['set'],
+    precio: '600000',
+    desc: 'Top cuello cuadrado con tirantes de vuelo + short a juego en lino arena natural. Pantalón $350.000 · Blusa $250.000',
+    img: 'fotos/hf_20260518_200614_ba5a663b-b58c-4446-b9be-3e2c587cf8c1.png',
+    badge: null
+  },
+  {
+    nombre: 'Set Amada',
+    cats: ['set'],
+    precio: '650000',
+    desc: 'Camisa cuello mao en encaje blanco artesanal + pantalón palazzo de pierna ancha. Pantalón $350.000 · Blusa $300.000',
+    img: 'fotos/hf_20260518_200200_bbbf1316-9aad-4508-b0f9-1fe0c7550628.png',
+    badge: null
+  },
+  {
+    nombre: 'Set Pureza',
+    cats: ['set'],
+    precio: '650000',
+    desc: 'Chaqueta crop de lino blanco manga 3/4 con botones nácar + pantalón palazzo. Pantalón $350.000 · Blusa $300.000',
+    img: 'fotos/hf_20260518_195457_6c98b94d-0e3e-41af-adba-2c63481b551a.png',
+    badge: null
+  },
+  {
+    nombre: 'Set Celestial',
+    cats: ['set'],
+    precio: '600000',
+    desc: 'Top halter en broderie inglés calado + pantalón bombacho artesanal. Pieza celestial y única. Pantalón $350.000 · Blusa $250.000',
+    img: 'fotos/hf_20260518_193942_d9aaba5d-7143-45f6-9105-d82bd55a5bbd.png',
+    badge: null
+  },
+  {
+    nombre: 'Set Denim Puro',
+    cats: ['set'],
+    precio: '600000',
+    desc: 'Chaleco escote V en lino denim + pantalón palazzo con pespuntes blancos. Moderno y sofisticado. Pantalón $350.000 · Blusa $250.000',
+    img: 'fotos/hf_20260518_192650_d08298be-a021-431a-b7c5-163c8eb9da3e.png',
+    badge: null
+  },
+  {
+    nombre: 'Set Bendita',
+    cats: ['set'],
+    precio: '600000',
+    desc: 'Chaleco de guipur artesanal con lazada frontal + pantalón palazzo natural. Bendita elegancia. Pantalón $350.000 · Blusa $250.000',
+    img: 'fotos/hf_20260518_190241_ca17559d-5e9d-467e-b50f-0004e7f79172.png',
+    badge: null
+  },
+  {
+    nombre: 'Vestido Gracia',
+    cats: ['vestido'],
+    precio: '410000',
+    desc: 'Vestido maxi negro halter con escote V profundo y falda por niveles. Para las noches que piden todo.',
+    img: 'fotos/hf_20260518_185232_00ee5785-21c4-4021-adb1-85a0b6efce2e.png',
+    badge: null
+  },
+];
+
+const WA_ICON = `<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
+
+function fmt(n) {
+  if (!n || n === '0' || n === 'TBD') return 'Precio a consultar';
+  return '$' + parseInt(n).toLocaleString('es-CO');
+}
+
+function waUrl(nombre, precio) {
+  const msg = encodeURIComponent(
+    `Hola Yamila Cure 🌿 Vi la Cápsula Luz y me interesa *${nombre}* (${fmt(precio)} COP). ¿Está disponible?`
+  );
+  return `https://wa.me/${WA}?text=${msg}`;
+}
+
+function buildCard(p, i) {
+  const link  = waUrl(p.nombre, p.precio);
+  const badge = p.badge
+    ? `<span class="badge ${p.badge==='Nuevo'?'b-new':'b-sale'}">${p.badge}</span>`
+    : '';
+  return `
+<article class="card" style="animation-delay:${i * .06}s" role="listitem">
+  <div class="card-img">
+    <img src="${p.img}" alt="${p.nombre}" loading="lazy">
+    ${badge}
+    <div class="card-hover">
+      <a href="${link}" class="card-hover-btn" target="_blank" rel="noopener">
+        ${WA_ICON} Pedir por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="card-info">
+    <p class="card-cat">${p.cats[0]}</p>
+    <h2 class="card-name">${p.nombre}</h2>
+    <p class="card-desc">${p.desc}</p>
+    <div class="card-foot">
+      <span class="card-price">${fmt(p.precio)} <small>COP</small></span>
+      <a href="${link}" class="btn-pedir" target="_blank" rel="noopener">
+        ${WA_ICON} Pedir
+      </a>
+    </div>
+  </div>
+</article>`;
+}
+
+document.getElementById('grid').innerHTML = ITEMS.map((p, i) => buildCard(p, i)).join('');
+
+const ham  = document.getElementById('ham');
+const mnav = document.getElementById('mobnav');
+ham.addEventListener('click', () => {
+  ham.classList.toggle('open');
+  mnav.classList.toggle('open');
+});
+document.addEventListener('click', e => {
+  if (!ham.contains(e.target) && !mnav.contains(e.target)) {
+    ham.classList.remove('open');
+    mnav.classList.remove('open');
+  }
+});
+window.addEventListener('scroll', () => {
+  document.getElementById('hdr').classList.toggle('scrolled', window.scrollY > 10);
+}, { passive: true });
+</script>
+</body>
+</html>
